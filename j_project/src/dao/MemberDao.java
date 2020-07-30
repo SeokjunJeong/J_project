@@ -10,6 +10,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.sun.javafx.geom.transform.GeneralTransform3D;
+
 public class MemberDao {
 
 	private static MemberDao instance;
@@ -45,6 +47,8 @@ public class MemberDao {
 		System.out.println("m_passwd ->" + m_passwd);
 		ResultSet rs = null;
 
+		
+		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -123,4 +127,32 @@ public class MemberDao {
 		System.out.println("result ->" + result);
 		return result;
 	}
+public int resetpw(Member member) throws SQLException {
+	int result = 0;
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	String sql = "update member set m_passwd=?";
+	System.out.println("m_passwd->" + member.getM_passwd());
+
+	try {
+		conn = getConnection();
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, member.getM_passwd());
+
+		result = pstmt.executeUpdate();
+
+	} catch (Exception e) {
+		System.out.println(e.getMessage());
+	} finally {
+
+		if (conn != null)
+			conn.close();
+		if (pstmt != null)
+			pstmt.close();
+	}
+	
+	System.out.println("result ->" + result);
+	return result;
+}
+
 }

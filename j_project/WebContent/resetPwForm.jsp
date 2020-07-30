@@ -7,20 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="searchPwPro.do" method="post">
+<form action="resetPwPro.do" method="post">
 <div class="a">
 	<table class="table">
-		<th colspan="2">비 밀 번 호 찾 기</th>
-		<tr><td></td></tr>
+		<th colspan="2">비 밀 번 호 변 경</th>
+		<tr><td><input type="hidden" id="id" name="id" value = "${ dbid}"></td></tr>
 		<tr>
-			<td>ID</td>
-			<td><input type="text" id="id" name="id" placeholder="내용을 입력해주세요" required="required"></td>
+			<td>새 비밀번호</td>
+			<td><input type="password" id="newpass" name="newpass" placeholder="내용을 입력해주세요" required="required"></td>
 		</tr>
-		<tr>
-			<td>E-MAIL</td>
-			<td><input type="text" id="email" name="email" placeholder="내용을 입력해주세요" required="required"></td>
-		</tr>
-		<td colspan="2"><input type="submit" value="비밀번호 찾기"></td>
+		<td colspan="2"><input type="submit" value="비밀번호 변경"></td>
 	</table>
 </div>
 </form>
