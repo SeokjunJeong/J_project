@@ -7,11 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+resetPwForm.jsp 왔다
+${dbid}
+"${dbid}"
+"${m_id}"
+${m_id}
 <form action="resetPwPro.do" method="post">
 <div class="a">
 	<table class="table">
 		<th colspan="2">비 밀 번 호 변 경</th>
-		<tr><td><input type="hidden" id="id" name="id" value = "${ dbid}"></td></tr>
+		<tr><td><input type="hidden" id="id" name="id" value = "${m_id}"></td></tr>
 		<tr>
 			<td>새 비밀번호</td>
 			<td><input type="password" id="newpass" name="newpass" placeholder="내용을 입력해주세요" required="required"></td>

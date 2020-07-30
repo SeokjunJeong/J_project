@@ -14,6 +14,7 @@ public class resetPwProAction implements CommandProcess {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("resetPwProAction start");
 		try {
 			
 			request.setCharacterEncoding("utf-8");

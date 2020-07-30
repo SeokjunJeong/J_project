@@ -131,14 +131,14 @@ public int resetpw(Member member) throws SQLException {
 	int result = 0;
 	Connection conn = null;
 	PreparedStatement pstmt = null;
-	String sql = "update member set m_passwd=?";
+	String sql = "update member set m_passwd=? where m_id=?" ;
 	System.out.println("m_passwd->" + member.getM_passwd());
 
 	try {
 		conn = getConnection();
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, member.getM_passwd());
-
+		pstmt.setString(2, member.getM_id());
 		result = pstmt.executeUpdate();
 
 	} catch (Exception e) {

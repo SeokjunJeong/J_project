@@ -11,7 +11,12 @@ public class resetPwFormAction implements CommandProcess {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println("resetPwFormAction start....");
+		try {
+			
+			String m_id = request.getParameter("id");
+			request.setAttribute("m_id", m_id);
+		}catch(Exception e) {	System.out.println(e.getMessage());	}
 		return "resetPwForm.jsp";
 	}
 
