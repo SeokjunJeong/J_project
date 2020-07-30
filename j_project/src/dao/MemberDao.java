@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
 
 import javax.naming.Context;
@@ -127,20 +128,20 @@ public class MemberDao {
 		System.out.println("result ->" + result);
 		return result;
 	}
-public int resetpw(Member member) throws SQLException {
+public int resetpw(String m_id, String m_passwd) throws SQLException {
 	int result = 0;
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	String sql = "update member set m_passwd=? where m_id=?" ;
-	System.out.println("m_passwd->" + member.getM_passwd());
+	System.out.println("m_passwd->" + m_passwd);
+	System.out.println("m_id->" + m_id);
 
 	try {
 		conn = getConnection();
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, member.getM_passwd());
-		pstmt.setString(2, member.getM_id());
+		pstmt.setString(1, m_passwd);
+		pstmt.setString(2, m_id);
 		result = pstmt.executeUpdate();
-
 	} catch (Exception e) {
 		System.out.println(e.getMessage());
 	} finally {
@@ -154,5 +155,28 @@ public int resetpw(Member member) throws SQLException {
 	System.out.println("result ->" + result);
 	return result;
 }
+
+public Member select(String m_id) throws SQLException {
+	Connection conn = null;	
+	Statement stmt= null; 
+	ResultSet rs = null;
+	String sql = "select * from member where m_id="+m_id;
+	Member member = new Member();
+	try {
+		conn = getConnection();
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery(sql);
+		if (rs.next()) {				
+			member.setM_id(rs.getString(m_id));
+		}
+	} catch(Exception e) {	System.out.println(e.getMessage()); 
+	} finally {
+		if (rs !=null) rs.close();
+		if (stmt != null) stmt.close();
+		if (conn !=null) conn.close();
+	}
+	return member;
+}
+
 
 }

@@ -16,8 +16,8 @@
 </c:if>	
 <c:if test="${ result == 0 }">
 	<script type="text/javascript">
-		alert("뭐야 잘하지 !  쩐다 쩔어");
-		location.href="resetForm.do";
+		alert("실패");
+		history.back();
 	</script>
 </c:if>
 </body>

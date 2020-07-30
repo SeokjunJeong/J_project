@@ -8,11 +8,9 @@
 </head>
 <body>
 resetPwForm.jsp 왔다
-${dbid}
-"${dbid}"
 "${m_id}"
 ${m_id}
-<form action="resetPwPro.do" method="post">
+<form action="resetPwPro.do?m_id=${m_id}" method="post">
 <div class="a">
 	<table class="table">
 		<th colspan="2">비 밀 번 호 변 경</th>

@@ -13,7 +13,6 @@
 	<c:if test="${result > 0}">
 		<script type="text/javascript">
 			alert("확인 되었습니다. 새 비밀번호로 변경해주세요");
-			/* session.setAttribute("m_id", m_id);  */
 			location.href = "resetPwForm.do?m_id=${m_id}";
 		</script>
 	</c:if>

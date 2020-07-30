@@ -18,12 +18,11 @@ public class resetPwProAction implements CommandProcess {
 		try {
 			
 			request.setCharacterEncoding("utf-8");
-			Member member = new Member();
-			member.setM_passwd(request.getParameter("newpass"));
+			String m_id = request.getParameter("m_id");
+			String m_passwd = request.getParameter("newpass");
 			MemberDao md = MemberDao.getInstance();
-			int result = md.resetpw(member); 
+			int result = md.resetpw(m_id, m_passwd); 
 			System.out.println(result);
-			request.setAttribute("m_passwd", member.getM_passwd());
 			request.setAttribute("result", result);
 
 		} catch (Exception e) {
