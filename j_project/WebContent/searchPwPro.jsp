@@ -9,21 +9,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:if test="${result == 0}">
+	<c:if test="${result > 0}">
 		<script type="text/javascript">
-			alert("이메일로 인증번호를 보냈습니다.");
+			alert("확인 되었습니다. 새 비밀번호로 변경해주세요");
 			location.href = "ResetPwForm.jsp";
 		</script>
 	</c:if>
-	<c:if test="${result == 1}">
+	<c:if test="${result == 0}">
 		<script type="text/javascript">
-			alert("아이디가 다릅니다. 다시 작성해주세요");
-			location.href = "searchPwForm.jsp";
-		</script>
-	</c:if>
-	<c:if test="${result == 2}">
-		<script type="text/javascript">
-			alert("e-mail이 다릅니다. 다시 작성해주세요");
+			alert("아이디 이메일 정보가 다릅니다. 다시 작성해주세요");
 			location.href = "searchPwForm.jsp";
 		</script>
 	</c:if>
