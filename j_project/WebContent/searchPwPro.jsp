@@ -12,7 +12,7 @@
 	<c:if test="${result == 0}">
 		<script type="text/javascript">
 			alert("이메일로 인증번호를 보냈습니다.");
-			location.href = "searchPwForm.jsp";
+			location.href = "ResetPwForm.jsp";
 		</script>
 	</c:if>
 	<c:if test="${result == 1}">
