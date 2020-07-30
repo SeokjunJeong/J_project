@@ -16,18 +16,26 @@ public class resetPwProAction implements CommandProcess {
 			throws ServletException, IOException {
 		System.out.println("resetPwProAction start");
 		try {
-			
+			int result = 0;
 			request.setCharacterEncoding("utf-8");
 			String m_id = request.getParameter("m_id");
 			String m_passwd = request.getParameter("newpass");
-			MemberDao md = MemberDao.getInstance();
-			int result = md.resetpw(m_id, m_passwd); 
-			System.out.println(result);
-			request.setAttribute("result", result);
+			String chkpass = request.getParameter("chkpass");
+			System.out.println("chkpass->" + chkpass);
+			System.out.println("m_passwd->" + m_passwd);
 
+			if (m_passwd.equals(chkpass)) {
+				MemberDao md = MemberDao.getInstance();
+				result = md.resetpw(m_id, m_passwd);
+			} else {
+				result = -1;
+			}
+			request.setAttribute("result", result);
+			System.out.println("result->" + result);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+
 		return "resetPwPro.jsp";
 	}
 

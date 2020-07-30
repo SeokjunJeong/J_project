@@ -19,6 +19,10 @@ ${m_id}
 			<td>새 비밀번호</td>
 			<td><input type="password" id="newpass" name="newpass" placeholder="내용을 입력해주세요" required="required"></td>
 		</tr>
+		<tr>
+			<td>비밀번호 확인</td>
+			<td><input type="password" id="chkpass" name="chkpass" placeholder="내용을 입력해주세요" required="required"></td>
+		</tr>
 		<td colspan="2"><input type="submit" value="비밀번호 변경"></td>
 	</table>
 </div>
