@@ -9,12 +9,6 @@
 </head>
 <body>
 	<c:choose>
-		<c:when test="${chkpass != newpass  }">
-			<script type="text/javascript">
-				alert("비밀번호를 확인하세요")
-				history.back();
-			</script>
-		</c:when>
 		<c:when test="${result > 0 }">
 			<script type="text/javascript">
 				alert("수정 완료 ! ");
