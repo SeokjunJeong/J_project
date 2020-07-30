@@ -80,7 +80,7 @@ public class MemberDao {
 		int result = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "select m_passwd from member where m_id=? and m_email=?";
+		String sql = "select m_id,  m_email from member where m_id=? and m_email=?";
 		System.out.println("m_id->" + m_id);
 		System.out.println("m_email ->" + m_email);
 		ResultSet rs = null;

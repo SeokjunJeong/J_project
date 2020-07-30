@@ -18,14 +18,14 @@ public class searchPwProAction implements CommandProcess {
 		try {
 			
 			request.setCharacterEncoding("utf-8");
-			String m_id = request.getParameter("m_id");
-			String m_email = request.getParameter("m_email");
+			String m_id = request.getParameter("id");
+			String m_email = request.getParameter("email");
 			MemberDao md = MemberDao.getInstance();
 			int result = md.pwcheck(m_id, m_email); 
 
 			request.setAttribute("m_id", m_id);
 			request.setAttribute("m_email", m_email);
-
+			request.setAttribute("result", result);
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
